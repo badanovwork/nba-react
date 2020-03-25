@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import SearchContainer from '../search/SearchContainers'
 import NBA from '../../assets/nba.png'
 
+import { Link } from "react-router-dom";
+
 import { connect } from 'react-redux';
-import { toggleIsMainAC } from '../../store/action'
 
 import './Header.css';
 
@@ -13,11 +14,25 @@ const Header = ({ dispatch }) => {
         <>
             <div className='header'>
                 <div className='header__logo'>
-                    <img src={NBA} alt=''/>
+                    <img src={NBA} alt='' />
                     <span>Stats</span>
                 </div>
+                <div className='header__menu'>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/players">Players</Link>
+                            </li>
+                            <li>
+                                <Link to="/favorites">Favorites</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
                 <SearchContainer />
-                <button onClick={() => dispatch(toggleIsMainAC())}>PLAYERS|ТЕАМS</button>
             </div>
         </>
     )

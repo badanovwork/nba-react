@@ -1,38 +1,44 @@
 import React from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import { connect } from 'react-redux';
-import { getPlayers } from './store/action';
+
 import Header from './components/header/Header';
-import PlayersContainer from './components/players/PlayersContainer';
 import Teams from './components/teams/Teams';
+import PlayersContainer from './components/players/PlayersContainer';
+
+import { getPlayers } from './store/action';
+import './App.css';
 
 class App extends React.Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.getPlayers();
   }
 
   render() {
     return (
-      <div className='app'>
+      <Router>
         <Header />
         <div className='main'>
-          {this.props.toggle 
-            ? <PlayersContainer />
-            : <Teams />}
+          <Switch>
+            <Route path="/favorites">
+              <div>404</div>
+            </Route>
+            <Route path="/players">
+              <PlayersContainer />
+            </Route>
+            <Route path="/">
+              <Teams />
+            </Route>
+          </Switch>
         </div>
-      </div>
+      </Router>
     )
   }
 }
 
-function mapStateToProps(state){
-  return {
-    toggle: state.isMainToggle
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  {getPlayers}
-)(App);
+export default connect(null, { getPlayers })(App);

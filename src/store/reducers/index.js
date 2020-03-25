@@ -6,7 +6,6 @@ const initialState = {
     searchName: '',
     countCards: 10,
     isFetching: false,
-    isMainToggle: true,
     players: [],
     teams: teams
 }
