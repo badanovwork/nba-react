@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import './Player.css';
 import Spinner from '../spinner/Spinner';
 import Nophoto from './Nophoto';
+import favorites from '../../assets/20.ico'
 
 const Player = (props) => {
     return (
@@ -12,7 +13,7 @@ const Player = (props) => {
                 <Img src={props.player.logo_url} alt={props.player.team_name} />
             </div>
             <div className='player_card__avatar'>
-                <Img src={props.player.avatar_url} alt={props.player.name} loader={<Spinner />} unloader={<Nophoto />}/>
+                <Img src={props.player.avatar_url} alt={props.player.name} loader={<Spinner />} unloader={<Nophoto />} />
             </div>
             <div className='player_card__team_line'></div>
             <div className='player_card__name'>
@@ -28,17 +29,18 @@ const Player = (props) => {
                 <div><span>TPG:&nbsp;</span> {props.player.turnovers_per_game}</div>
                 <div><span>SPG:&nbsp;</span> {props.player.steals_per_game}</div>
             </div>
-            <div className='player_card__favorits'>
-                {props.player.favorites}
+            <div className='player_card__favorites'>
+                { props.player.favorites 
+                    ? <img className='toggle_favorites_button' src={favorites} onClick={() => props.favoritesPlayer(props.player.id)} alt='' />
+                    : <img onClick={() => props.favoritesPlayer(props.player.id)} src={favorites} alt='' />}
             </div>
         </div>
     )
 }
 
-//стилизовать карточки как https://dribbble.com/shots/6394786-Playoff-Website/attachments
-
 Player.propTypes = {
-    player: PropTypes.object
+    player: PropTypes.object,
+    favoritesPlayer: PropTypes.func.isRequired
 }
 
 export default Player;

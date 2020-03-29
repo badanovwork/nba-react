@@ -26,10 +26,10 @@ class App extends React.Component {
         <div className='main'>
           <Switch>
             <Route path="/favorites">
-              <div>404</div>
+              <PlayersContainer favoritesMod={true}/>
             </Route>
             <Route path="/players">
-              <PlayersContainer />
+              <PlayersContainer  favoritesMod={false}/>
             </Route>
             <Route path="/">
               <Teams />

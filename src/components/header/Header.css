@@ -21,3 +21,19 @@
 .header__logo span {
     padding: 0 10px;
 }
+
+.header__menu ul,ol{
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.header__menu li{
+   margin: 0 10px;
+}
+
+.header__menu a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+ }

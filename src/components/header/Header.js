@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import './Header.css';
 
-const Header = ({ dispatch }) => {
+const Header = () => {
     return (
         <>
             <div className='header'>
@@ -21,7 +21,7 @@ const Header = ({ dispatch }) => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/">Home</Link>
+                                <Link to="/">Teams</Link>
                             </li>
                             <li>
                                 <Link to="/players">Players</Link>

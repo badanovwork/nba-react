@@ -57,3 +57,18 @@
 .player_card__stats>div>span {
     font-weight: bold;
 }
+
+.player_card__favorites{
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+.player_card__favorites img{
+    width: 100%
+}
+
+.toggle_favorites_button{
+    background: red;
+}
+

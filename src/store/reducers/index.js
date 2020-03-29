@@ -1,4 +1,4 @@
-import { GET_PLAYERS, TOOGLE_IS_FETCHING, TOOGLE_IS_MAIN, INC_COUNT_CARDS, SEARCH_NAME } from '../action'
+import { GET_PLAYERS, TOOGLE_IS_FETCHING, TOOGLE_IS_MAIN, INC_COUNT_CARDS, SEARCH_NAME, FAVORITES_PLAYER } from '../action'
 import teams from '../../assets/teams-desc.json';
 
 
@@ -29,18 +29,28 @@ function rootReducer(state = initialState, action){
             }
         case INC_COUNT_CARDS:
             return {
-                    ...state,
-                    countCards: state.countCards + action.payload
-                }
+                ...state,
+                countCards: state.countCards + action.payload
+            }
         case SEARCH_NAME:
             return {
                 ...state,
                 searchName: action.payload 
             }
+        case FAVORITES_PLAYER:
+            return Object.assign({}, state, {
+                players: state.players.map((player, index) => {
+                  if (index === action.payload) {
+                    return Object.assign({}, player, {
+                        favorites: !player.favorites
+                    })
+                  }
+                  return player
+                })
+              })
         default:
             return state;
       }
-
 }
 
 export default rootReducer;
