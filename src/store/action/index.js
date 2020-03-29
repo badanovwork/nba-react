@@ -2,6 +2,8 @@ import axios from 'axios';
 import teams from '../../assets/teams-desc.json';
 
 export const GET_PLAYERS = 'GET_PLAYERS';
+export const TEAM_CHOICE = 'TEAM_CHOICE';
+export const CLEAR_TAG = 'CLEAR_TAG';
 export const FAVORITES_PLAYER = 'FAVORITES_PLAYER';
 export const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
 export const TOOGLE_IS_MAIN = 'TOOGLE_IS_MAIN';
@@ -79,4 +81,14 @@ export const incCountCardsAC = () => ({
 export const favoritesPlayerAC = (id) => ({
     type: FAVORITES_PLAYER,
     payload: id
+})
+
+
+export const teamChoiceAC = (tag) => ({
+    type: TEAM_CHOICE,
+    payload: tag
+})
+
+export const clearTeamTagAC = () => ({
+    type: CLEAR_TAG
 })

@@ -4,26 +4,29 @@ import Player from '../player/Player';
 
 import './Players.css';
 
-const Players = ({ isFetching, players, incCountCards, countCards, teams, favoritesPlayer, favoritesMod }) => {
+const Players = ({ isFetching, players, incCountCards, countCards, teams, favoritesPlayer, favoritesMod, activTeam}) => {
     return (
         <>
             <div className='players'>
-                { isFetching ? <div>loading...</div> : null}
-                { favoritesMod
+                {isFetching ? <div>loading...</div> : null}
+                {favoritesMod
                     ? players
-                        .slice(1, countCards)
                         .filter(player => player.favorites === true)
                         .map((item, index) => (
                             <Player key={index} player={item} index={index} teams={teams} favoritesPlayer={favoritesPlayer} />
-                            ))
+                        ))
+                        .slice(0, countCards)
                     : players
-                        .slice(1, countCards)
+                        .filter(player => {
+                            return activTeam === 'all'? player : player.team_acronym === activTeam;
+                        })
                         .map((item, index) => (
                             <Player key={index} player={item} index={index} teams={teams} favoritesPlayer={favoritesPlayer} />
-                            ))
+                        ))
+                        .slice(0, countCards)
                 }
             </div>
-            { <button onClick={incCountCards}>Показать ещё</button>}
+            {<button onClick={incCountCards}>Показать ещё</button>}
         </>
     )
 }

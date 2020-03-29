@@ -15,7 +15,7 @@ class Search extends React.Component {
 
     render() {
         return (
-            <input value={this.searchName} onChange={this.handleChange}/>
+            <input placeholder='player search' value={this.searchName} onChange={this.handleChange}/>
         )
     }
 }

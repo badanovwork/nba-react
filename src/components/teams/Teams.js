@@ -1,23 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import Team from '../team/Team'
+import PlayersContainer from '../players/PlayersContainer'
 import './Teams.css';
 
+const Teams = (props) => {
+    return (
+        <>
+            {
+                props.activTeam === 'all' 
+                ? <div className='teams'>{ props.teams.map(( item, index ) => <Team key={index} team={item} teamChoice={props.teamChoice}/>)} </div>
+                : <PlayersContainer />
+            }
+        </>
 
-class Teams extends React.Component {
-    render (){
-        return (
-            <div className='teams'>
-                {this.props.teams.map((item, index)=> {
-                    return <Team key={index} team={item}/>;
-                })}
-            </div>
-        )
-    }
+    )
 }
-
-const mapStateToProps = (state) => ({
-    teams: state.teams
-})
-
-export default connect(mapStateToProps)(Teams);
+export default Teams;

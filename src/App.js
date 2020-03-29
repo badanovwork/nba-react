@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux';
 
 import Header from './components/header/Header';
-import Teams from './components/teams/Teams';
+import TeamContainer from './components/teams/TeamsContainer';
 import PlayersContainer from './components/players/PlayersContainer';
 
 import { getPlayers } from './store/action';
@@ -32,7 +32,7 @@ class App extends React.Component {
               <PlayersContainer  favoritesMod={false}/>
             </Route>
             <Route path="/">
-              <Teams />
+              <TeamContainer />
             </Route>
           </Switch>
         </div>

@@ -1,4 +1,4 @@
-import { GET_PLAYERS, TOOGLE_IS_FETCHING, TOOGLE_IS_MAIN, INC_COUNT_CARDS, SEARCH_NAME, FAVORITES_PLAYER } from '../action'
+import { GET_PLAYERS, TOOGLE_IS_FETCHING, TOOGLE_IS_MAIN, INC_COUNT_CARDS, SEARCH_NAME, FAVORITES_PLAYER, TEAM_CHOICE, CLEAR_TAG } from '../action'
 import teams from '../../assets/teams-desc.json';
 
 
@@ -7,7 +7,8 @@ const initialState = {
     countCards: 10,
     isFetching: false,
     players: [],
-    teams: teams
+    teams: teams,
+    activTeam: 'all'
 }
 
 function rootReducer(state = initialState, action){
@@ -48,6 +49,16 @@ function rootReducer(state = initialState, action){
                   return player
                 })
               })
+        case TEAM_CHOICE:
+            return {
+                ...state,
+                activTeam: action.payload
+            }
+        case CLEAR_TAG:
+            return {
+                ...state,
+                activTeam: 'all'
+            }
         default:
             return state;
       }

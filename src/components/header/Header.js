@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 import SearchContainer from '../search/SearchContainers'
 import NBA from '../../assets/nba.png'
 
 import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
-
+import { clearTeamTagAC } from '../../store/action'
 import './Header.css';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <>
             <div className='header'>
@@ -21,13 +20,13 @@ const Header = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/">Teams</Link>
+                                <Link to="/" onClick={props.clearTeamTagAC}>Teams</Link>
                             </li>
                             <li>
-                                <Link to="/players">Players</Link>
+                                <Link to="/players" onClick={props.clearTeamTagAC}>Players</Link>
                             </li>
                             <li>
-                                <Link to="/favorites">Favorites</Link>
+                                <Link to="/favorites" onClick={props.clearTeamTagAC}>Favorites</Link>
                             </li>
                         </ul>
                     </nav>
@@ -38,8 +37,4 @@ const Header = () => {
     )
 }
 
-Header.propTypes = {
-    dispatch: PropTypes.func.isRequired
-}
-
-export default connect()(Header);
+export default connect(null, {clearTeamTagAC})(Header);
