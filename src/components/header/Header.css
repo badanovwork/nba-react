@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    background: #3f51b5;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.header__logo img {
+    height: 50px;
+}
+
+.header__logo span {
+    padding: 0 10px;
+}
+
+.header__menu ul,ol{
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.header__menu li{
+   margin: 0 10px;
+}
+
+.header__menu a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+ }

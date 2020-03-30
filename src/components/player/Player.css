@@ -1,0 +1,74 @@
+.player_card {
+    width: 30%;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.player_card__team {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 3px solid #3f51b5;
+    border-radius: 50% 50%;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.player_card__team img {
+    width: 100%;
+}
+
+.player_card__avatar {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 213px;
+    /* background-image: url(../../assets/glare.jpg); */
+}
+
+.player_card__team_line {
+    height: 10px;
+    background: #3f51b5;
+}
+
+.player_card__avatar img {
+    width: 102%;
+}
+
+.player_card__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.player_card__stats {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+}
+
+.player_card__stats>div {
+    width: 50%;
+    display: flex;
+}
+
+.player_card__stats>div>span {
+    font-weight: bold;
+}
+
+.player_card__favorites{
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+.player_card__favorites img{
+    width: 100%
+}
+
+.toggle_favorites_button{
+    background: red;
+}
+
